@@ -13,6 +13,7 @@ sudo dnf -y install libcurl-gnutls alien
 
 
 # deb 패키지 변환
+echo "rpm 꾸러미로 변환 및 설치를 시작합니다. 시간이 제법 걸리니 기다려 주세요"
 
 sudo alien --to-rpm --scripts -i hoffice-hwp_11.20.0.989_amd64.deb
 
