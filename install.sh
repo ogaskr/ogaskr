@@ -9,7 +9,7 @@
 
 sudo dnf -y copr enable patrickl/libcurl-gnutls
 
-sudo dnf -y install libcurl-gnutls alien
+sudo dnf -y install libcurl-gnutls alien mesa-libGLU qt5-qtwebsockets
 
 
 # deb 패키지 변환
