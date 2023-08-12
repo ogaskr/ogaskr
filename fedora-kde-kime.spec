@@ -16,12 +16,13 @@ BuildRequires:	rust
 %define kime_lib_dir %{_libdir}
 %define kime_gtk3_dir %{_libdir}/gtk-3.0/3.0.0/immodules
 %define kime_qt5_dir %{_libdir}/qt5/plugins/platforminputcontexts
+%define kime_qt6_dir %{_libdir}/qt6/plugins/platforminputcontexts
 %define kime_icons_dir %{_datadir}/%{name}/icons/hicolor/64x64/apps
 %define kime_build_dir build/out
 
 %description
 
-GTK및 QT5 대부분 프로그램에서 한글을 입력할 수 있는 새로운 한글 입력기
+GTK및 QT5,QT6 대부분 프로그램에서 한글을 입력할 수 있는 새로운 한글 입력기
 
 %prep
 
@@ -34,6 +35,7 @@ scripts/build.sh -ar
 rm -rf %{buildroot}
 install -d -p  %{buildroot}%{_bindir}
 install -d -p  %{buildroot}%{kime_qt5_dir}
+install -d -p  %{buildroot}%{kime_qt6_dir}
 install -d -p  %{buildroot}%{kime_gtk3_dir}
 install -d -p  %{buildroot}%{kime_inc_dir}
 install -d -p  %{buildroot}%{kime_icons_dir}
@@ -43,6 +45,7 @@ install -d -p  %{buildroot}%{_datadir}/im-config/data
 install -Dm 0755 %{kime_build_dir}/kime-* %{buildroot}%{_bindir}
 install -Dm 0755 %{kime_build_dir}/libkime-gtk3.so %{buildroot}%{kime_gtk3_dir}/im-kime.so
 install -Dm 0755 %{kime_build_dir}/libkime-qt5.so %{buildroot}%{kime_qt5_dir}/libkimeplatforminputcontextplugin.so
+install -Dm 0755 %{kime_build_dir}/libkime-qt6.so %{buildroot}%{kime_qt6_dir}/libkimeplatforminputcontextplugin.so
 install -Dm 0755 %{kime_build_dir}/libkime_engine.so %{buildroot}%{_libdir}/
 install -Dm 0644 %{kime_build_dir}/icons/64x64/*.png %{buildroot}%{kime_icons_dir}/
 install -Dm 0644 %{kime_build_dir}/default_config.yaml %{buildroot}%{kime_conf_dir}/config.yaml
@@ -98,6 +101,7 @@ mv /home/$USER/.i18n.old /home/$USER/.i18n
 %{kime_conf_dir}/config.yaml
 %{kime_gtk3_dir}/im-kime.so
 %{kime_qt5_dir}/libkimeplatforminputcontextplugin.so
+%{kime_qt6_dir}/libkimeplatforminputcontextplugin.so
 %{_libdir}/libkime_engine.so
 %{_includedir}/kime*
 
