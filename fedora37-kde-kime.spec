@@ -6,7 +6,7 @@ Group:		System/Internalization
 Vendor:		fedora
 License:	GPLv3
 URL:		https://github.com/Riey/kime/
-Source0:	%{name}-%{version}.tar.gz
+Source0:	v%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildArch:	x86_64
 BuildRequires:	rust
@@ -115,6 +115,7 @@ mv /home/$USER/.i18n.old /home/$USER/.i18n
 %changelog
 * Sun Aug 13 2023 ogaskr 3.0.2-2
 - add Qt6 support
+- change Source file name
 - change files
 * Sat Aug 12 2023 ogaskr 3.0.2-1
 - make rpm spec
