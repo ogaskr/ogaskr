@@ -66,35 +66,9 @@ rm -rf %{buildroot}
 
 %post
 gtk-query-immodules-3.0-64 --update-cache
-mv /home/$USER/.i18n /home/$USER/.i18n.old
-
-cat > /home/$USER/.i18n <<EOF
-CONSOLE_NOT_LOCALIZED=yes
-ENC=utf8
-LANG=ko_KR.UTF-8
-LANGUAGE=ko_KR.UTF-8:ko
-LC_ADDRESS=ko_KR.UTF-8
-LC_COLLATE=ko_KR.UTF-8
-LC_CTYPE=ko_KR.UTF-8
-LC_IDENTIFICATION=ko_KR.UTF-8
-LC_MEASUREMENT=ko_KR.UTF-8
-LC_MESSAGES=ko_KR.UTF-8
-LC_MONETARY=ko_KR.UTF-8
-LC_NAME=ko_KR.UTF-8
-LC_NUMERIC=ko_KR.UTF-8
-LC_PAPER=ko_KR.UTF-8
-LC_TELEPHONE=ko_KR.UTF-8
-LC_TIME=ko_KR.UTF-8
-GTK_IM_MODULE=kime
-QT_IM_MODULE=kime
-XMODIFIERS=@im=kime
-XIM_PROGRAM=kime-xim
-EOF
 
 %postun
 gtk-query-immodules-3.0-64 --update-cache
-rm -f /home/$USER/.i18n
-mv /home/$USER/.i18n.old /home/$USER/.i18n
 
 %files
 
@@ -117,5 +91,6 @@ mv /home/$USER/.i18n.old /home/$USER/.i18n
 - add Qt6 support
 - change Source file name
 - change files
+- remove i18n settings
 * Sat Aug 12 2023 ogaskr 3.0.2-1
 - make rpm spec
